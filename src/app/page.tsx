@@ -16,8 +16,8 @@ export default function Dashboard() {
         <p className="text-sm font-medium text-emerald-700">First up</p>
         <h2 className="mt-2 text-xl font-semibold">Your food collection</h2>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-stone-600">
-          Keep the nutritional values for the foods you use in one place. Food
-          entry will arrive in the next milestone.
+          Keep the nutritional values for the foods you use in one place. Add,
+          edit, and find foods in your collection.
         </p>
         <Link
           href="/foods"
