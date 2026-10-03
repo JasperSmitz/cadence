@@ -1,0 +1,176 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "da4d4a24-c620-4bad-b025-8c6c25eb7fa3",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "foods": {
+      "name": "foods",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "energy_centi_kcal_per_100g": {
+          "name": "energy_centi_kcal_per_100g",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "protein_mg_per_100g": {
+          "name": "protein_mg_per_100g",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "carbohydrate_mg_per_100g": {
+          "name": "carbohydrate_mg_per_100g",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "fat_mg_per_100g": {
+          "name": "fat_mg_per_100g",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "fiber_mg_per_100g": {
+          "name": "fiber_mg_per_100g",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "serving_size_mg": {
+          "name": "serving_size_mg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "serving_label": {
+          "name": "serving_label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "package_size_mg": {
+          "name": "package_size_mg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "foods_name_idx": {
+          "name": "foods_name_idx",
+          "columns": [
+            "name"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "foods_id_valid": {
+          "name": "foods_id_valid",
+          "value": "length(\"foods\".\"id\") = 36"
+        },
+        "foods_name_valid": {
+          "name": "foods_name_valid",
+          "value": "length(trim(\"foods\".\"name\")) between 1 and 200 and \"foods\".\"name\" = trim(\"foods\".\"name\")"
+        },
+        "foods_energy_valid": {
+          "name": "foods_energy_valid",
+          "value": "typeof(\"foods\".\"energy_centi_kcal_per_100g\") = 'integer' and \"foods\".\"energy_centi_kcal_per_100g\" between 0 and 100000"
+        },
+        "foods_protein_mg_per_100g_valid": {
+          "name": "foods_protein_mg_per_100g_valid",
+          "value": "\"foods\".\"protein_mg_per_100g\" is null or (typeof(\"foods\".\"protein_mg_per_100g\") = 'integer' and \"foods\".\"protein_mg_per_100g\" between 0 and 100000)"
+        },
+        "foods_carbohydrate_mg_per_100g_valid": {
+          "name": "foods_carbohydrate_mg_per_100g_valid",
+          "value": "\"foods\".\"carbohydrate_mg_per_100g\" is null or (typeof(\"foods\".\"carbohydrate_mg_per_100g\") = 'integer' and \"foods\".\"carbohydrate_mg_per_100g\" between 0 and 100000)"
+        },
+        "foods_fat_mg_per_100g_valid": {
+          "name": "foods_fat_mg_per_100g_valid",
+          "value": "\"foods\".\"fat_mg_per_100g\" is null or (typeof(\"foods\".\"fat_mg_per_100g\") = 'integer' and \"foods\".\"fat_mg_per_100g\" between 0 and 100000)"
+        },
+        "foods_fiber_mg_per_100g_valid": {
+          "name": "foods_fiber_mg_per_100g_valid",
+          "value": "\"foods\".\"fiber_mg_per_100g\" is null or (typeof(\"foods\".\"fiber_mg_per_100g\") = 'integer' and \"foods\".\"fiber_mg_per_100g\" between 0 and 100000)"
+        },
+        "foods_serving_size_mg_valid": {
+          "name": "foods_serving_size_mg_valid",
+          "value": "\"foods\".\"serving_size_mg\" is null or (typeof(\"foods\".\"serving_size_mg\") = 'integer' and \"foods\".\"serving_size_mg\" between 1 and 1000000000)"
+        },
+        "foods_package_size_mg_valid": {
+          "name": "foods_package_size_mg_valid",
+          "value": "\"foods\".\"package_size_mg\" is null or (typeof(\"foods\".\"package_size_mg\") = 'integer' and \"foods\".\"package_size_mg\" between 1 and 1000000000)"
+        },
+        "foods_serving_label_valid": {
+          "name": "foods_serving_label_valid",
+          "value": "\"foods\".\"serving_label\" is null or (\"foods\".\"serving_size_mg\" is not null and length(trim(\"foods\".\"serving_label\")) between 1 and 100 and \"foods\".\"serving_label\" = trim(\"foods\".\"serving_label\"))"
+        },
+        "foods_notes_valid": {
+          "name": "foods_notes_valid",
+          "value": "\"foods\".\"notes\" is null or (length(trim(\"foods\".\"notes\")) between 1 and 2000 and \"foods\".\"notes\" = trim(\"foods\".\"notes\"))"
+        },
+        "foods_timestamps_valid": {
+          "name": "foods_timestamps_valid",
+          "value": "typeof(\"foods\".\"created_at\") = 'integer' and typeof(\"foods\".\"updated_at\") = 'integer' and \"foods\".\"created_at\" >= 0 and \"foods\".\"updated_at\" >= \"foods\".\"created_at\" and \"foods\".\"updated_at\" <= 9007199254740991"
+        }
+      }
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

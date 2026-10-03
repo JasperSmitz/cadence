@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local SQLite databases (including journal/WAL sidecars)
+/data/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
