@@ -1,6 +1,6 @@
 # Cadence agent guidance
 
-Cadence is a personal nutrition / meal-prep / fitness application. The implemented surface is currently an application shell and database foundation. Work only within implemented functionality and the scope explicitly requested by the task. Code is the ultimate source of truth; documentation does not replace inspection.
+Cadence is a personal nutrition / meal-prep / fitness application. The implemented surface is currently an application shell, Foods CRUD, and database infrastructure. Work only within implemented functionality and the scope explicitly requested by the task. Code is the ultimate source of truth; documentation does not replace inspection.
 
 ## Workflow
 
