@@ -4,7 +4,7 @@ A local, single-user nutrition workspace with searchable Foods, creation/editing
 
 ## Setup
 
-Use Node **22.23.1** (`.node-version`) and pnpm **12.8.1** (`packageManager`). With Corepack available:
+Use Node **24.22.2** (`.node-version`) and pnpm **12.8.1** (`packageManager`). With Corepack available:
 
 ```sh
 corepack enable
